@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Header() {
-  const { language, setLanguage, t } = useLanguage()
+  const { language, setLanguage } = useLanguage()
   const [isOverLightSection, setIsOverLightSection] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null)

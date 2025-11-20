@@ -41,7 +41,7 @@ export default function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
             {language === 'ko' ? (
               <>
                 <p className="text-slate-700 leading-relaxed mb-6">
-                  '나노비크(주)'는 (이하 '회사'는) 개인정보보호법에 따라 이용자의 개인정보 보호 및 권익을 보호하고 개인정보와 관련한 이용자의 고충을 원활하게 처리할 수 있도록 다음과 같은 처리방침을 두고 있습니다.
+                  &apos;나노비크(주)&apos;는 (이하 &apos;회사&apos;는) 개인정보보호법에 따라 이용자의 개인정보 보호 및 권익을 보호하고 개인정보와 관련한 이용자의 고충을 원활하게 처리할 수 있도록 다음과 같은 처리방침을 두고 있습니다.
                 </p>
                 <p className="text-slate-700 leading-relaxed mb-6">
                   회사는 개인정보처리방침을 개정하는 경우 웹사이트 공지사항(또는 개별공지)을 통하여 공지할 것입니다.

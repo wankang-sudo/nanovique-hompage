@@ -7,7 +7,6 @@ import PrivacyModal from './PrivacyModal'
 
 export default function Footer() {
   const { language } = useLanguage()
-  const currentYear = new Date().getFullYear()
   const [showPrivacyModal, setShowPrivacyModal] = useState(false)
 
   const footerLinks = {
