@@ -45,7 +45,16 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const navItems = [
+  type NavItem = {
+    href: string
+    label: string
+    subItems?: Array<{
+      href: string
+      label: string
+    }>
+  }
+
+  const navItems: NavItem[] = [
     { href: '#about', label: 'About' },
     { href: '#solution', label: 'Technology' },
     { href: '#news', label: 'News' },
