@@ -100,8 +100,7 @@ export default function CompanyDetailPage({ onClose }: { onClose: () => void }) 
   return (
     <section
       ref={sectionRef}
-      className="bg-white min-h-fit rounded-3xl relative"
-      style={{ padding: '4rem', width: '100%' }}
+      className="bg-white min-h-fit rounded-3xl relative p-6 md:p-12 lg:p-16 w-full"
     >
       {/* Close Button */}
       <button
@@ -113,10 +112,9 @@ export default function CompanyDetailPage({ onClose }: { onClose: () => void }) 
       </button>
 
       <div className="w-full text-center flex flex-col items-center">
-        <div className="text-center mt-8">
+        <div className="text-center mt-4 sm:mt-8">
           <h1
-            className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-            style={{ marginBottom: '4rem' }}
+            className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mb-8 sm:mb-12 lg:mb-16`}
           >
             Company
             <span className="block text-brand">History</span>
@@ -124,9 +122,9 @@ export default function CompanyDetailPage({ onClose }: { onClose: () => void }) 
         </div>
 
         {/* Company Basic Info */}
-        <div className={`bg-white rounded-2xl p-8 w-full max-w-4xl mx-auto shadow-lg transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-2xl font-bold text-slate-800 mb-4">나노비크 주식회사</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-3 text-left">
+        <div className={`bg-white rounded-2xl p-6 sm:p-8 w-full max-w-4xl mx-auto shadow-lg transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-800 mb-4 sm:mb-6">나노비크 주식회사</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-3 text-left">
             <div className="py-1">
               <span className="font-semibold text-slate-700">회사명:</span>
               <span className="text-slate-600 ml-2">나노비크 주식회사</span>
@@ -149,7 +147,7 @@ export default function CompanyDetailPage({ onClose }: { onClose: () => void }) 
             </div>
             <div className="py-1">
               <span className="font-semibold text-slate-700">소재지:</span>
-              <span className="text-slate-600 ml-2">서울바이오허브</span>
+              <span className="text-slate-600 ml-2">서울시 성북구 오패산로 3길 12</span>
             </div>
           </div>
         </div>
@@ -162,13 +160,13 @@ export default function CompanyDetailPage({ onClose }: { onClose: () => void }) 
           <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
               {/* Table Header */}
-              <div className="bg-gradient-to-r from-slate-50 to-gray-50 px-6 py-4 border-b border-gray-200">
-                <div className="grid grid-cols-12 gap-4">
-                  <div className="col-span-3 md:col-span-2">
-                    <h3 className="text-sm font-bold text-slate-700 uppercase tracking-wide">날짜</h3>
+              <div className="bg-gradient-to-r from-slate-50 to-gray-50 px-4 sm:px-6 py-4 border-b border-gray-200">
+                <div className="flex gap-4">
+                  <div className="w-20 sm:w-24 flex-shrink-0">
+                    <h3 className="text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-wide">날짜</h3>
                   </div>
-                  <div className="col-span-9 md:col-span-10">
-                    <h3 className="text-sm font-bold text-slate-700 uppercase tracking-wide">주요 연혁</h3>
+                  <div className="flex-1">
+                    <h3 className="text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-wide">주요 연혁</h3>
                   </div>
                 </div>
               </div>
@@ -178,7 +176,7 @@ export default function CompanyDetailPage({ onClose }: { onClose: () => void }) 
                 {allAchievements.map((achievement, index) => (
                   <div
                     key={achievement.date + achievement.title}
-                    className={`px-6 py-4 hover:bg-slate-50 transition-all duration-300 ${
+                    className={`px-4 sm:px-6 py-4 hover:bg-slate-50 transition-all duration-300 ${
                       index % 2 === 0 ? 'bg-white' : 'bg-slate-25'
                     } ${
                       isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
@@ -188,21 +186,21 @@ export default function CompanyDetailPage({ onClose }: { onClose: () => void }) 
                       animationFillMode: 'forwards'
                     }}
                   >
-                    <div className="grid grid-cols-12 gap-4 items-center">
+                    <div className="flex gap-4 items-start">
                       {/* Date Column */}
-                      <div className="col-span-3 md:col-span-2">
-                        <span className="text-sm font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-full">
+                      <div className="w-20 sm:w-24 flex-shrink-0">
+                        <span className="text-xs sm:text-sm font-medium text-slate-600 bg-slate-100 px-2 sm:px-3 py-1 rounded-full whitespace-nowrap inline-block">
                           {achievement.date}
                         </span>
                       </div>
 
                       {/* Achievement Column */}
-                      <div className="col-span-9 md:col-span-10">
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <span className="text-base font-semibold text-slate-800">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-start gap-2 flex-wrap">
+                          <span className="text-sm sm:text-base font-semibold text-slate-800">
                             {achievement.title}
                             {achievement.amount && (
-                              <span className="text-base font-semibold text-slate-800 ml-2">
+                              <span className="text-sm sm:text-base font-semibold text-slate-800 ml-2">
                                 ({achievement.amount})
                               </span>
                             )}

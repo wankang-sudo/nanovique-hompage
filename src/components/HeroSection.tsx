@@ -1,8 +1,10 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function HeroSection() {
+  const { t } = useLanguage()
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -90,8 +92,8 @@ export default function HeroSection() {
           </span>
         </h1>
 
-        <p className="text-xl sm:text-2xl lg:text-3xl font-light opacity-90 leading-relaxed" style={{ marginBottom: '2.64rem' }}>
-          미래형 전달 솔루션 전문 기업 나노비크입니다
+        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light opacity-90 leading-relaxed px-4" style={{ marginBottom: '2.64rem' }}>
+          {t('미래형 전달 솔루션 전문 기업 나노비크입니다', 'Advanced Delivery Solution Expert, NANOVIQUE')}
         </p>
 
         <button

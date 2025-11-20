@@ -1,8 +1,10 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function NewsSection() {
+  const { language } = useLanguage()
   const [isVisible, setIsVisible] = useState(false)
   const [showAllNews, setShowAllNews] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -129,14 +131,14 @@ export default function NewsSection() {
                           className="text-brand hover:text-brand-light font-semibold text-sm flex items-center space-x-2 transition-colors duration-200"
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <span>자세히 보기</span>
+                          <span>{language === 'ko' ? '자세히 보기' : 'Read More'}</span>
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                           </svg>
                         </a>
                       ) : (
                         <button className="text-brand hover:text-brand-light font-semibold text-sm flex items-center space-x-2 transition-colors duration-200">
-                          <span>자세히 보기</span>
+                          <span>{language === 'ko' ? '자세히 보기' : 'Read More'}</span>
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                           </svg>
@@ -168,7 +170,9 @@ export default function NewsSection() {
             <span className="block text-brand">Media</span>
           </h2>
           <p className={`text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            나노비크의 최신 연구 성과와 파트너십 소식을 확인하세요
+            {language === 'ko'
+              ? '나노비크의 최신 연구 성과와 파트너십 소식을 확인하세요'
+              : 'Discover our latest research achievements and partnership news'}
           </p>
         </div>
 
@@ -208,14 +212,14 @@ export default function NewsSection() {
                     className="text-brand hover:text-brand-light font-semibold text-sm flex items-center space-x-2 transition-colors duration-200"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <span>자세히 보기</span>
+                    <span>{language === 'ko' ? '자세히 보기' : 'Read More'}</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </a>
                 ) : (
                   <button className="text-brand hover:text-brand-light font-semibold text-sm flex items-center space-x-2 transition-colors duration-200">
-                    <span>자세히 보기</span>
+                    <span>{language === 'ko' ? '자세히 보기' : 'Read More'}</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
@@ -231,7 +235,7 @@ export default function NewsSection() {
             onClick={() => setShowAllNews(true)}
             className="bg-brand hover:bg-brand-light text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
-            모든 뉴스 보기
+            {language === 'ko' ? '모든 뉴스 보기' : 'View All News'}
           </button>
         </div>
           </div>

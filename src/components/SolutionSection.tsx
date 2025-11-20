@@ -1,8 +1,10 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function SolutionSection() {
+  const { language } = useLanguage()
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 
@@ -45,7 +47,9 @@ export default function SolutionSection() {
             <span className="block text-brand">Technology</span>
           </h2>
           <p className={`text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            나노비크의 혁신적 전달 솔루션으로 안정성과 효능을 동시에 확보합니다
+            {language === 'ko'
+              ? '나노비크의 혁신적 전달 솔루션으로 안정성과 효능을 동시에 확보합니다'
+              : 'NANOVIQUE\'s innovative delivery solution ensures both stability and efficacy'}
           </p>
         </div>
 
@@ -68,8 +72,14 @@ export default function SolutionSection() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white mb-2">안정성 문제 극복</h4>
-                    <p className="text-gray-300">외부 환경 및 전달체간 접촉을 차단하여 나노전달체의 안정성 유지</p>
+                    <h4 className="font-semibold text-white mb-2">
+                      {language === 'ko' ? '안정성 문제 극복' : 'Overcoming Stability Issues'}
+                    </h4>
+                    <p className="text-gray-300">
+                      {language === 'ko'
+                        ? '외부 환경 및 전달체간 접촉을 차단하여 나노전달체의 안정성 유지'
+                        : 'Maintaining nanocarrier stability by blocking external environment and carrier-to-carrier contact'}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -82,8 +92,14 @@ export default function SolutionSection() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white mb-2">고정밀 방출 제어</h4>
-                    <p className="text-gray-300">자극 감응형 방출 및 표적세포 고효율 전달</p>
+                    <h4 className="font-semibold text-white mb-2">
+                      {language === 'ko' ? '고정밀 방출 제어' : 'High-Precision Release Control'}
+                    </h4>
+                    <p className="text-gray-300">
+                      {language === 'ko'
+                        ? '자극 감응형 방출 및 표적세포 고효율 전달'
+                        : 'Stimulus-responsive release and highly efficient delivery to target cells'}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -96,8 +112,14 @@ export default function SolutionSection() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white mb-2">다중 특성 구현</h4>
-                    <p className="text-gray-300">높은 생체 점작성 및 투과성으로 높은 경피 효율 달성</p>
+                    <h4 className="font-semibold text-white mb-2">
+                      {language === 'ko' ? '다중 특성 구현' : 'Multi-Functional Properties'}
+                    </h4>
+                    <p className="text-gray-300">
+                      {language === 'ko'
+                        ? '높은 생체 점작성 및 투과성으로 높은 경피 효율 달성'
+                        : 'Achieving high transdermal efficiency with superior bioadhesive and permeability properties'}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -108,15 +130,21 @@ export default function SolutionSection() {
         <div className={`grid md:grid-cols-3 gap-8 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="text-center bg-slate-800/50 rounded-xl p-8 shadow-lg border border-slate-700">
             <div className="text-4xl font-bold text-brand mb-2">95%</div>
-            <div className="text-gray-300">안정성 향상</div>
+            <div className="text-gray-300">
+              {language === 'ko' ? '안정성 향상' : 'Stability Improvement'}
+            </div>
           </div>
           <div className="text-center bg-slate-800/50 rounded-xl p-8 shadow-lg border border-slate-700">
             <div className="text-4xl font-bold text-brand mb-2">80%</div>
-            <div className="text-gray-300">효능 유지율</div>
+            <div className="text-gray-300">
+              {language === 'ko' ? '효능 유지율' : 'Efficacy Retention'}
+            </div>
           </div>
           <div className="text-center bg-slate-800/50 rounded-xl p-8 shadow-lg border border-slate-700">
-            <div className="text-4xl font-bold text-brand mb-2">99%</div>
-            <div className="text-gray-300">정밀 전달률</div>
+            <div className="text-4xl font-bold text-brand mb-2">97%</div>
+            <div className="text-gray-300">
+              {language === 'ko' ? '정밀 전달률' : 'Precision Delivery Rate'}
+            </div>
           </div>
         </div>
           </div>

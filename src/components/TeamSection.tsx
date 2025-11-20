@@ -1,11 +1,13 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
 import TeamDetailPage from './TeamDetailPage'
 import CompanyDetailPage from './CompanyDetailPage'
 import LabOfficeDetailPage from './LabOfficeDetailPage'
 
 export default function TeamSection() {
+  const { language } = useLanguage()
   const [isVisible, setIsVisible] = useState(false)
   const [showTeamDetail, setShowTeamDetail] = useState(false)
   const [showCompanyDetail, setShowCompanyDetail] = useState(false)
@@ -87,12 +89,11 @@ export default function TeamSection() {
   if (showTeamDetail) {
     return (
       <div
-        className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-6"
+        className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 md:p-6"
         onClick={closeModal}
       >
         <div
-          className="bg-white rounded-3xl shadow-2xl min-w-[600px] max-h-[90vh] overflow-y-auto relative mx-auto"
-          style={{ maxWidth: '83.6rem', width: '83.6rem' }}
+          className="bg-white rounded-3xl shadow-2xl w-full max-w-full md:max-w-[83.6rem] max-h-[90vh] overflow-y-auto relative mx-auto"
           onClick={(e) => e.stopPropagation()}
         >
           <TeamDetailPage onClose={closeModal} />
@@ -104,12 +105,11 @@ export default function TeamSection() {
   if (showCompanyDetail) {
     return (
       <div
-        className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-6"
+        className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 md:p-6"
         onClick={closeModal}
       >
         <div
-          className="bg-white rounded-3xl shadow-2xl min-w-[600px] max-h-[90vh] overflow-y-auto relative mx-auto"
-          style={{ maxWidth: '83.6rem', width: '83.6rem' }}
+          className="bg-white rounded-3xl shadow-2xl w-full max-w-full md:max-w-[83.6rem] max-h-[90vh] overflow-y-auto relative mx-auto"
           onClick={(e) => e.stopPropagation()}
         >
           <CompanyDetailPage onClose={closeModal} />
@@ -121,12 +121,11 @@ export default function TeamSection() {
   if (showLabOfficeDetail) {
     return (
       <div
-        className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-6"
+        className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 md:p-6"
         onClick={closeModal}
       >
         <div
-          className="bg-white rounded-3xl shadow-2xl min-w-[600px] max-h-[90vh] overflow-y-auto relative mx-auto"
-          style={{ maxWidth: '83.6rem', width: '83.6rem' }}
+          className="bg-white rounded-3xl shadow-2xl w-full max-w-full md:max-w-[83.6rem] max-h-[90vh] overflow-y-auto relative mx-auto"
           onClick={(e) => e.stopPropagation()}
         >
           <LabOfficeDetailPage onClose={closeModal} />
@@ -200,7 +199,7 @@ export default function TeamSection() {
                 <span className="button-arrow transition-all duration-300 ml-2 opacity-60 group-hover:opacity-100 group-hover:translate-x-1">&gt;&gt;</span>
               </button>
               <p className="text-slate-400 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-relaxed">
-                작지만 강한 팀과 함께합니다.
+                {language === 'ko' ? '작지만 강한 팀과 함께합니다.' : 'Small but mighty team together.'}
               </p>
             </div>
 
@@ -237,7 +236,7 @@ export default function TeamSection() {
                 <span className="button-arrow transition-all duration-300 ml-2 opacity-60 group-hover:opacity-100 group-hover:translate-x-1">&gt;&gt;</span>
               </button>
               <p className="text-slate-400 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-relaxed">
-                혁신으로 도약하고 결과로 증명합니다.
+                {language === 'ko' ? '혁신으로 도약하고 결과로 증명합니다.' : 'Innovating to leap and proving with results.'}
               </p>
             </div>
 
@@ -274,7 +273,7 @@ export default function TeamSection() {
                 <span className="button-arrow transition-all duration-300 ml-2 opacity-60 group-hover:opacity-100 group-hover:translate-x-1">&gt;&gt;</span>
               </button>
               <p className="text-slate-400 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-relaxed">
-                발견이 모이고, 성장이 펼쳐집니다.
+                {language === 'ko' ? '발견이 모이고, 성장이 펼쳐집니다.' : 'Where discoveries gather and growth unfolds.'}
               </p>
             </div>
           </div>

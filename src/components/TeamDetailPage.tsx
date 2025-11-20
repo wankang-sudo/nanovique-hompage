@@ -31,7 +31,6 @@ export default function TeamDetailPage({ onClose }: { onClose: () => void }) {
       "서울대학교 기계공학 박사"
     ],
     experience: [
-      "전) 한국 기계연구원 객원 연구원",
       "전) 엔바이오셀 연구소장",
       "전) 서울대학교 연구교수"
     ],
@@ -66,7 +65,7 @@ export default function TeamDetailPage({ onClose }: { onClose: () => void }) {
   const allMembers = [
     {
       name: "이규희",
-      role: "선임 연구원",
+      role: "수석 연구원",
       background: "서울대학교 기계공학 박사",
       hasPhd: true
     },
@@ -105,8 +104,7 @@ export default function TeamDetailPage({ onClose }: { onClose: () => void }) {
   return (
       <section
         ref={sectionRef}
-        className="bg-white min-h-fit rounded-3xl relative"
-        style={{ padding: '4rem', width: '100%' }}
+        className="bg-white min-h-fit rounded-3xl relative p-6 md:p-16 w-full"
       >
       {/* Close Button */}
       <button
@@ -126,24 +124,24 @@ export default function TeamDetailPage({ onClose }: { onClose: () => void }) {
 
           {/* CEO Section */}
           <div
-            className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} w-full max-w-[56.76rem]`}
             style={{ marginBottom: '3rem' }}
           >
-            <div className="bg-white rounded-2xl shadow-lg" style={{ padding: '2.5rem', width: '56.76rem', maxWidth: '56.76rem' }}>
+            <div className="bg-white rounded-2xl shadow-lg p-6 md:p-10 w-full">
                 {/* 프로필 정보 */}
-                <div className="flex items-center" style={{ marginBottom: '3rem' }}>
-                  <div className="w-48 h-48 rounded-2xl overflow-hidden" style={{ marginRight: '4rem' }}>
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-16 mb-8 md:mb-12">
+                  <div className="w-32 h-32 md:w-48 md:h-48 rounded-2xl overflow-hidden flex-shrink-0">
                     <img
                       src="/CEO.png"
                       alt="최성학 CEO"
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="text-left">
-                    <h2 className="text-3xl font-bold text-slate-800 mb-2">
-                      {ceo.name} <span className="text-slate-500 font-normal text-xl">Ph.D.</span>
+                  <div className="text-center md:text-left">
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-2">
+                      {ceo.name} <span className="text-slate-500 font-normal text-lg md:text-xl">Ph.D.</span>
                     </h2>
-                    <p className="text-brand font-bold text-lg">{ceo.role}</p>
+                    <p className="text-brand font-bold text-base md:text-lg">{ceo.role}</p>
                   </div>
                 </div>
 
@@ -192,16 +190,16 @@ export default function TeamDetailPage({ onClose }: { onClose: () => void }) {
 
           {/* Executives Section */}
           <div className="text-center" style={{ marginBottom: '4rem' }}>
-            <div className="flex flex-col lg:flex-row justify-center mx-auto" style={{ gap: '3rem', maxWidth: '58.08rem' }}>
+            <div className="flex flex-col lg:flex-row justify-center mx-auto gap-6 lg:gap-12 max-w-full lg:max-w-[58.08rem]">
               {executives.map((exec, index) => (
                 <div
                   key={exec.name}
-                  className={`bg-white rounded-2xl shadow-md transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                  style={{ padding: '2rem', transitionDelay: `${400 + index * 200}ms`, width: '29.04rem', maxWidth: '29.04rem' }}
+                  className={`bg-white rounded-2xl shadow-md transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} w-full lg:w-auto lg:flex-1 p-6 lg:p-8`}
+                  style={{ transitionDelay: `${400 + index * 200}ms` }}
                 >
                 {/* 프로필 정보 */}
-                <div className="flex items-center" style={{ marginBottom: '2rem' }}>
-                  <div className="w-32 h-32 rounded-2xl overflow-hidden" style={{ marginRight: '2rem' }}>
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-8 mb-6 sm:mb-8">
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl overflow-hidden flex-shrink-0">
                     {exec.role === '사업총괄이사' ? (
                       <img
                         src="/CBO.png"
@@ -216,12 +214,12 @@ export default function TeamDetailPage({ onClose }: { onClose: () => void }) {
                       />
                     )}
                   </div>
-                  <div className="text-left">
-                    <h3 className="text-xl font-bold text-slate-800" style={{ marginBottom: '0.5rem' }}>
-                      {exec.name}{exec.role === '연구소장' && <span className="text-slate-500 font-normal text-base"> Ph.D.</span>}
+                  <div className="text-center sm:text-left">
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-800 mb-2">
+                      {exec.name}{exec.role === '연구소장' && <span className="text-slate-500 font-normal text-sm sm:text-base"> Ph.D.</span>}
                     </h3>
-                    <p className="text-brand font-bold text-base" style={{ marginBottom: '0.5rem' }}>{exec.role}</p>
-                    <p className="text-sm text-slate-600">{exec.background}</p>
+                    <p className="text-brand font-bold text-sm sm:text-base mb-2">{exec.role}</p>
+                    <p className="text-xs sm:text-sm text-slate-600">{exec.background}</p>
                   </div>
                 </div>
 
@@ -246,15 +244,14 @@ export default function TeamDetailPage({ onClose }: { onClose: () => void }) {
 
           {/* Team Members Section */}
           <div className={`transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h2 className="text-2xl font-bold text-slate-800 text-center" style={{ marginBottom: '2rem' }}>Members</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-800 text-center mb-6 sm:mb-8">Members</h2>
 
             {/* First Row - Ph.D. Members */}
-            <div className="flex justify-center max-w-5xl mx-auto" style={{ gap: '2rem', marginBottom: '2rem' }}>
+            <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 max-w-5xl mx-auto mb-6 sm:mb-8">
               {allMembers.filter(m => m.hasPhd).map((member, index) => (
                 <div
                   key={member.name}
-                  className="bg-white rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300"
-                  style={{ width: '14rem', padding: '1.5rem' }}
+                  className="bg-white rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300 p-4 sm:p-6 w-full sm:w-56"
                 >
                   <div className="w-24 h-24 rounded-xl mx-auto overflow-hidden" style={{ marginBottom: '1.5rem' }}>
                     <img
@@ -275,12 +272,11 @@ export default function TeamDetailPage({ onClose }: { onClose: () => void }) {
             </div>
 
             {/* Second Row - Other Members */}
-            <div className="flex justify-center max-w-5xl mx-auto" style={{ gap: '2rem', marginBottom: '4rem' }}>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-items-center gap-4 sm:gap-6 max-w-5xl mx-auto mb-8 sm:mb-16">
               {allMembers.filter(m => !m.hasPhd).map((member, index) => (
                 <div
                   key={member.name}
-                  className="bg-white rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300"
-                  style={{ width: '10rem', padding: '1.5rem' }}
+                  className="bg-white rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300 p-4 sm:p-6 w-full max-w-[10rem]"
                 >
                   <div className="w-20 h-20 rounded-xl mx-auto overflow-hidden" style={{ marginBottom: '1.5rem' }}>
                     <img

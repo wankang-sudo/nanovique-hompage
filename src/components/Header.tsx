@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Header() {
+  const { language, setLanguage, t } = useLanguage()
   const [isOverLightSection, setIsOverLightSection] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null)
@@ -47,7 +49,8 @@ export default function Header() {
 
   type NavItem = {
     href: string
-    label: string
+    labelKo: string
+    labelEn: string
     subItems?: Array<{
       href: string
       label: string
@@ -55,10 +58,10 @@ export default function Header() {
   }
 
   const navItems: NavItem[] = [
-    { href: '#about', label: 'About' },
-    { href: '#solution', label: 'Technology' },
-    { href: '#news', label: 'News' },
-    { href: '#contact', label: 'Contact' },
+    { href: '#about', labelKo: '회사소개', labelEn: 'About' },
+    { href: '#solution', labelKo: '기술', labelEn: 'Technology' },
+    { href: '#news', labelKo: '뉴스', labelEn: 'News' },
+    { href: '#contact', labelKo: '문의', labelEn: 'Contact' },
   ]
 
   return (
@@ -87,17 +90,17 @@ export default function Header() {
               <div
                 key={item.href}
                 className="relative"
-                onMouseEnter={() => setHoveredMenu(item.label)}
+                onMouseEnter={() => setHoveredMenu(item.labelEn)}
                 onMouseLeave={() => setHoveredMenu(null)}
               >
                 <Link
                   href={item.href}
                   className="px-3 py-2 text-lg font-medium transition-colors duration-300 text-white hover:text-brand-lighter"
                 >
-                  {item.label}
+                  {language === 'ko' ? item.labelKo : item.labelEn}
                 </Link>
 
-                {item.subItems && hoveredMenu === item.label && (
+                {item.subItems && hoveredMenu === item.labelEn && (
                   <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
                     {item.subItems.map((subItem) => (
                       <button
@@ -127,11 +130,21 @@ export default function Header() {
         {/* 언어 버튼 - 화면 오른쪽 고정 */}
         <div className="hidden md:flex absolute right-4 sm:right-6 lg:right-8 top-0 h-16 items-center z-20">
           <div className="flex items-center space-x-4">
-            <button className="text-lg font-medium transition-colors duration-300 text-white hover:text-brand-lighter">
+            <button
+              onClick={() => setLanguage('ko')}
+              className={`text-lg font-medium transition-colors duration-300 ${
+                language === 'ko' ? 'text-white font-bold' : 'text-white/60 hover:text-white'
+              }`}
+            >
               KR
             </button>
             <span className="transition-colors duration-300 text-white/50">|</span>
-            <button className="text-lg font-medium transition-colors duration-300 text-white hover:text-brand-lighter">
+            <button
+              onClick={() => setLanguage('en')}
+              className={`text-lg font-medium transition-colors duration-300 ${
+                language === 'en' ? 'text-white font-bold' : 'text-white/60 hover:text-white'
+              }`}
+            >
               EN
             </button>
           </div>
@@ -177,15 +190,25 @@ export default function Header() {
                   className="text-white hover:text-brand-lighter block px-3 py-2 text-base font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {item.label}
+                  {language === 'ko' ? item.labelKo : item.labelEn}
                 </Link>
               ))}
               <div className="flex items-center space-x-4 px-3 py-2">
-                <button className="text-white hover:text-brand-lighter text-sm font-medium">
+                <button
+                  onClick={() => setLanguage('ko')}
+                  className={`text-sm font-medium ${
+                    language === 'ko' ? 'text-white font-bold' : 'text-white/60 hover:text-white'
+                  }`}
+                >
                   KR
                 </button>
                 <span className="text-white/50">|</span>
-                <button className="text-white hover:text-brand-lighter text-sm font-medium">
+                <button
+                  onClick={() => setLanguage('en')}
+                  className={`text-sm font-medium ${
+                    language === 'en' ? 'text-white font-bold' : 'text-white/60 hover:text-white'
+                  }`}
+                >
                   EN
                 </button>
               </div>
