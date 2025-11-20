@@ -23,7 +23,14 @@ export default function CompanyDetailPage({ onClose }: { onClose: () => void }) 
     return () => observer.disconnect()
   }, [])
 
-  const achievements2024 = [
+  type Achievement = {
+    date: string
+    title: string
+    amount?: string
+    isKeyMilestone?: boolean
+  }
+
+  const achievements2024: Achievement[] = [
     {
       date: "2024.04",
       title: "예비창업패키지(서울대학교) 선정",
@@ -57,7 +64,7 @@ export default function CompanyDetailPage({ onClose }: { onClose: () => void }) 
     }
   ]
 
-  const achievements2025 = [
+  const achievements2025: Achievement[] = [
     {
       date: "2025.03",
       title: "(주)아모레퍼시픽홀딩 전략적 투자유치",
