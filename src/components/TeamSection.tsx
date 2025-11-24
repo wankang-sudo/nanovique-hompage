@@ -79,10 +79,17 @@ export default function TeamSection() {
     setShowTeamDetail(false)
     setShowCompanyDetail(false)
     setShowLabOfficeDetail(false)
-    // Clean up URL parameters
+    // Clean up URL parameters and hash
     const url = new URL(window.location.href)
     url.searchParams.delete('team')
-    window.history.replaceState({}, '', url.pathname + (url.hash || ''))
+    window.history.replaceState({}, '', url.pathname + '#about')
+    // Scroll back to about section
+    setTimeout(() => {
+      const aboutSection = document.querySelector('#about')
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 100)
   }
 
 

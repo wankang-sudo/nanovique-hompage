@@ -100,9 +100,10 @@ export default function NewsSection() {
                 {news.map((item, index) => (
                   <div
                     key={index}
-                    className="bg-white rounded-2xl shadow-lg overflow-hidden border border-sky-200 transition-all duration-300 group cursor-pointer"
+                    className="bg-white rounded-2xl shadow-lg overflow-hidden border border-sky-200 transition-all duration-150 group cursor-pointer hover:-translate-y-2 hover:shadow-2xl flex flex-col"
+                    onClick={() => item.link && window.open(item.link, '_blank')}
                   >
-                    <div className="relative h-48 overflow-hidden">
+                    <div className="relative h-48 overflow-hidden flex-shrink-0">
                       <img
                         src={item.image}
                         alt={item.title}
@@ -110,7 +111,7 @@ export default function NewsSection() {
                       />
                     </div>
 
-                    <div className="p-6">
+                    <div className="p-6 flex flex-col flex-grow">
                       <div className="flex items-center justify-end mb-3">
                         <span className="text-sm text-gray-500">{item.date}</span>
                       </div>
@@ -119,31 +120,16 @@ export default function NewsSection() {
                         {item.title}
                       </h3>
 
-                      <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                      <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3 flex-grow">
                         {item.summary}
                       </p>
 
-                      {item.link ? (
-                        <a
-                          href={item.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-brand hover:text-brand-light font-semibold text-sm flex items-center space-x-2 transition-colors duration-200"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <span>{language === 'ko' ? '자세히 보기' : 'Read More'}</span>
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                          </svg>
-                        </a>
-                      ) : (
-                        <button className="text-brand hover:text-brand-light font-semibold text-sm flex items-center space-x-2 transition-colors duration-200">
-                          <span>{language === 'ko' ? '자세히 보기' : 'Read More'}</span>
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                          </svg>
-                        </button>
-                      )}
+                      <div className="text-brand font-semibold text-sm flex items-center space-x-2 mt-auto">
+                        <span>{language === 'ko' ? '자세히 보기' : 'Read More'}</span>
+                        <svg className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -171,8 +157,8 @@ export default function NewsSection() {
           </h2>
           <p className={`text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             {language === 'ko'
-              ? '나노비크의 최신 연구 성과와 파트너십 소식을 확인하세요'
-              : 'Discover our latest research achievements and partnership news'}
+              ? '나노비크의 최신 연구 성과와 파트너십 소식을 확인하세요.'
+              : 'Discover our latest research achievements and partnership news.'}
           </p>
         </div>
 
@@ -180,10 +166,24 @@ export default function NewsSection() {
           {news.slice(0, 3).map((item, index) => (
             <div
               key={index}
-              className={`bg-white rounded-2xl shadow-lg overflow-hidden border border-sky-200 transition-all duration-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} group cursor-pointer`}
-              style={{ transitionDelay: `${300 + index * 200}ms` }}
+              className={`bg-white rounded-2xl shadow-lg overflow-hidden border border-sky-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} group cursor-pointer flex flex-col`}
+              style={{
+                transition: isVisible ? 'opacity 1s, transform 1s' : 'opacity 1s, transform 1s',
+                transitionDelay: isVisible ? `${300 + index * 200}ms, ${300 + index * 200}ms` : '0ms'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transition = 'transform 0.1s ease-out, box-shadow 0.1s ease-out'
+                e.currentTarget.style.transform = 'translateY(-0.5rem)'
+                e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transition = 'transform 0.1s ease-out, box-shadow 0.1s ease-out'
+                e.currentTarget.style.transform = isVisible ? 'translateY(0)' : 'translateY(2.5rem)'
+                e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+              }}
+              onClick={() => item.link && window.open(item.link, '_blank')}
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-48 overflow-hidden flex-shrink-0">
                 <img
                   src={item.image}
                   alt={item.title}
@@ -191,7 +191,7 @@ export default function NewsSection() {
                 />
               </div>
 
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-grow">
                 <div className="flex items-center justify-end mb-3">
                   <span className="text-sm text-gray-500">{item.date}</span>
                 </div>
@@ -200,31 +200,16 @@ export default function NewsSection() {
                   {item.title}
                 </h3>
 
-                <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3 flex-grow">
                   {item.summary}
                 </p>
 
-                {item.link ? (
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-brand hover:text-brand-light font-semibold text-sm flex items-center space-x-2 transition-colors duration-200"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <span>{language === 'ko' ? '자세히 보기' : 'Read More'}</span>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </a>
-                ) : (
-                  <button className="text-brand hover:text-brand-light font-semibold text-sm flex items-center space-x-2 transition-colors duration-200">
-                    <span>{language === 'ko' ? '자세히 보기' : 'Read More'}</span>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </button>
-                )}
+                <div className="text-brand font-semibold text-sm flex items-center space-x-2 mt-auto">
+                  <span>{language === 'ko' ? '자세히 보기' : 'Read More'}</span>
+                  <svg className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
               </div>
             </div>
           ))}

@@ -48,18 +48,20 @@ export default function SolutionSection() {
           </h2>
           <p className={`text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             {language === 'ko'
-              ? '나노비크의 혁신적 전달 솔루션으로 안정성과 효능을 동시에 확보합니다'
-              : 'NANOVIQUE\'s innovative delivery solution ensures both stability and efficacy'}
+              ? '나노비크의 혁신적 전달 솔루션으로 안정성과 효능을 동시에 확보합니다.'
+              : 'NANOVIQUE\'s innovative delivery solution ensures both stability and efficacy.'}
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <img
-              src="/platformsystem.png"
-              alt="Platform System"
-              className="w-full h-auto shadow-lg border border-slate-600 rounded-xl"
-            />
+            <div className="relative bg-slate-600 rounded-xl shadow-lg">
+              <img
+                src="/platformsystem.png"
+                alt="Platform System"
+                className="w-full h-auto relative z-10 border border-slate-600 rounded-xl"
+              />
+            </div>
           </div>
 
           <div className={`space-y-8 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
