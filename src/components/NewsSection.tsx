@@ -28,6 +28,24 @@ export default function NewsSection() {
 
   const news = [
     {
+      date: "2026.07.30",
+      category: "보도",
+      title: "나노비크·터리낙스, 모낭 기술 기반 반려동물 더마케어 공동개발 착수",
+      summary: "나노·마이크로 하이브리드 전달 플랫폼 기업 나노비크와 세포치료제·엑소좀 기반 모낭 바이오 기술 기업 터리낙스가 반려동물 피부 건강 관리를 위한 예방형 데일리 더마케어 제품 공동 개발에 나선다.",
+      image: "/press6.jpg",
+      badge: "보도",
+      link: "https://www.biotimes.co.kr/news/articleView.html?idxno=33512"
+    },
+    {
+      date: "2026.07.06",
+      category: "보도",
+      title: "나노비크-셀쿠아, 수생생물 기반 재생 바이오소재 공동개발 나선다",
+      summary: "나노전달 플랫폼 기업 나노비크와 수산동물 세포배양 플랫폼 기업 셀쿠아가 수생생물 유래 재생 바이오소재 공동 연구개발에 나선다고 7일 밝혔다.",
+      image: "/press5.png",
+      badge: "보도",
+      link: "https://www.biotimes.co.kr/news/articleView.html?idxno=32961"
+    },
+    {
       date: "2025.10.23",
       category: "기술이전",
       title: "경과원, 도내 바이오벤처에 혈당·항비만 원천기술 이전. 쓰리에이치랩스·나노비크에 기술이전 율무미강·푸코잔틴 조성물 2건, 상용화 추진 R&D·시제품·인증 컨설팅 등 후속 지원 연계",
