@@ -41,7 +41,7 @@ export default function NewsSection() {
       category: "보도",
       title: "나노비크-셀쿠아, 수생생물 기반 재생 바이오소재 공동개발 나선다",
       summary: "나노전달 플랫폼 기업 나노비크와 수산동물 세포배양 플랫폼 기업 셀쿠아가 수생생물 유래 재생 바이오소재 공동 연구개발에 나선다고 7일 밝혔다.",
-      image: "/press5.png",
+      image: "/press5.jpg",
       badge: "보도",
       link: "https://www.biotimes.co.kr/news/articleView.html?idxno=32961"
     },
