@@ -2,11 +2,16 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Header() {
   const { language, setLanguage } = useLanguage()
+  const pathname = usePathname()
+  const isHome = pathname === '/'
   const [isOverLightSection, setIsOverLightSection] = useState(false)
+  // Sub-pages have no hero behind the header, so keep the solid background there.
+  const showSolidHeader = !isHome || isOverLightSection
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null)
 
@@ -58,21 +63,21 @@ export default function Header() {
   }
 
   const navItems: NavItem[] = [
-    { href: '#about', labelKo: '회사소개', labelEn: 'About' },
-    { href: '#solution', labelKo: '기술', labelEn: 'Technology' },
-    { href: '#news', labelKo: '뉴스', labelEn: 'News' },
-    { href: '#contact', labelKo: '문의', labelEn: 'Contact' },
+    { href: '/#about', labelKo: '회사소개', labelEn: 'About' },
+    { href: '/#solution', labelKo: '기술', labelEn: 'Technology' },
+    { href: '/#news', labelKo: '뉴스', labelEn: 'News' },
+    { href: '/#contact', labelKo: '문의', labelEn: 'Contact' },
   ]
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isOverLightSection
+        showSolidHeader
           ? 'backdrop-blur-sm shadow-lg'
           : 'bg-transparent'
       }`}
       style={{
-        backgroundColor: isOverLightSection ? '#0058CF' + 'E6' : 'transparent'
+        backgroundColor: showSolidHeader ? '#0058CF' + 'E6' : 'transparent'
       }}
     >
       <nav className="relative px-4 sm:px-6 lg:px-8">

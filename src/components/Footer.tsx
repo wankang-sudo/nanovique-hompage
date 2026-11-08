@@ -11,22 +11,22 @@ export default function Footer() {
 
   const footerLinks = {
     company: [
-      { labelKo: '회사 소개', labelEn: 'About Us', href: '#about' },
-      { labelKo: '팀', labelEn: 'Team', href: '#about' },
-      { labelKo: '연구 현황', labelEn: 'Research', href: '#research' },
-      { labelKo: '뉴스', labelEn: 'News', href: '#news' },
+      { labelKo: '회사 소개', labelEn: 'About Us', href: '/#about' },
+      { labelKo: '팀', labelEn: 'Team', href: '/#about' },
+      { labelKo: '연구 현황', labelEn: 'Research', href: '/#research' },
+      { labelKo: '뉴스', labelEn: 'News', href: '/#news' },
     ],
     technology: [
-      { labelKo: '기술 혁신', labelEn: 'Technology Innovation', href: '#technology' },
-      { labelKo: '연구개발', labelEn: 'R&D', href: '#research' },
-      { labelKo: '특허', labelEn: 'Patents', href: '#technology' },
-      { labelKo: '파트너십', labelEn: 'Partnership', href: '#contact' },
+      { labelKo: '기술 혁신', labelEn: 'Technology Innovation', href: '/#technology' },
+      { labelKo: '연구개발', labelEn: 'R&D', href: '/#research' },
+      { labelKo: '특허', labelEn: 'Patents', href: '/#technology' },
+      { labelKo: '파트너십', labelEn: 'Partnership', href: '/#contact' },
     ],
     contact: [
-      { labelKo: '연락처', labelEn: 'Contact', href: '#contact' },
-      { labelKo: '투자 문의', labelEn: 'Investment Inquiry', href: '#contact' },
-      { labelKo: '채용', labelEn: 'Careers', href: '#contact' },
-      { labelKo: '미디어', labelEn: 'Media', href: '#news' },
+      { labelKo: '연락처', labelEn: 'Contact', href: '/#contact' },
+      { labelKo: '투자 문의', labelEn: 'Investment Inquiry', href: '/#contact' },
+      { labelKo: '채용', labelEn: 'Careers', href: '/#contact' },
+      { labelKo: '미디어', labelEn: 'Media', href: '/#news' },
     ]
   }
 

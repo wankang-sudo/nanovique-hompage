@@ -93,7 +93,7 @@ export default function HeroSection() {
         </h1>
 
         <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light opacity-90 leading-relaxed px-4" style={{ marginBottom: '2.64rem' }}>
-          {t('미래형 전달 솔루션 전문 기업 나노비크입니다.', 'Advanced Delivery Solution Expert, NANOVIQUE.')}
+          {t('미래형 전달 솔루션 전문 기업 나노비크입니다.', 'NANOVIQUE — experts in advanced delivery solutions.')}
         </p>
 
         <button

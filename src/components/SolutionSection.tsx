@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function SolutionSection() {
@@ -80,7 +81,7 @@ export default function SolutionSection() {
                     <p className="text-gray-300">
                       {language === 'ko'
                         ? '외부 환경 및 전달체간 접촉을 차단하여 나노전달체의 안정성 유지'
-                        : 'Maintaining nanocarrier stability by blocking external environment and carrier-to-carrier contact'}
+                        : 'Maintaining nanocarrier stability by shielding carriers from the external environment and from each other'}
                     </p>
                   </div>
                 </div>
@@ -115,12 +116,12 @@ export default function SolutionSection() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white mb-2">
-                      {language === 'ko' ? '다중 특성 구현' : 'Multi-Functional Properties'}
+                      {language === 'ko' ? '다중 특성 구현' : 'Multifunctional Properties'}
                     </h4>
                     <p className="text-gray-300">
                       {language === 'ko'
                         ? '높은 생체 점작성 및 투과성으로 높은 경피 효율 달성'
-                        : 'Achieving high transdermal efficiency with superior bioadhesive and permeability properties'}
+                        : 'High transdermal efficiency through strong bioadhesion and permeability'}
                     </p>
                   </div>
                 </div>
@@ -148,6 +149,18 @@ export default function SolutionSection() {
               {language === 'ko' ? '정밀 전달률' : 'Precision Delivery Rate'}
             </div>
           </div>
+        </div>
+
+        <div className={`mt-12 text-center transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <Link
+            href="/technology"
+            className="inline-flex items-center space-x-2 bg-brand hover:bg-brand-light text-white font-semibold px-8 py-4 rounded-full shadow-lg transition-colors duration-200"
+          >
+            <span>{language === 'ko' ? 'PhysicsBridge 자세히 보기' : 'Explore PhysicsBridge'}</span>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </div>
           </div>
         </div>

@@ -45,7 +45,7 @@ export default function ProblemStatement() {
                 {language === 'ko' ? (
                   <>나노전달체는 실험실에서는 완벽하게 작동하지만, <span className="text-red-400 font-semibold">실제 환경에서는 불안정</span>해집니다.</>
                 ) : (
-                  <>Nanocarriers work perfectly in the lab, but become <span className="text-red-400 font-semibold">unstable in real-world conditions</span>.</>
+                  <>Nanocarriers perform well in the lab but often become <span className="text-red-400 font-semibold">unstable under real-world conditions</span>.</>
                 )}
               </p>
 
@@ -53,7 +53,7 @@ export default function ProblemStatement() {
                 {language === 'ko' ? (
                   <>온도, pH, 첨가물의 영향으화로 인해 나노입자가 응집되거나 파괴되어 <span className="text-red-400 font-semibold">전달 효과가 크게 감소</span>합니다.</>
                 ) : (
-                  <>Due to temperature, pH, and additives, nanoparticles aggregate or break down, leading to <span className="text-red-400 font-semibold">significantly reduced delivery efficacy</span>.</>
+                  <>Changes in temperature, pH, and additives cause nanoparticles to aggregate or break down, <span className="text-red-400 font-semibold">significantly reducing delivery efficacy</span>.</>
                 )}
               </p>
 
@@ -70,7 +70,7 @@ export default function ProblemStatement() {
               <div className="text-center">
                 <div className="text-3xl font-bold text-red-400 mb-2">85%</div>
                 <div className="text-sm text-gray-400">
-                  {language === 'ko' ? '실험실 외 효능 감소' : 'Efficacy Loss Outside Lab'}
+                  {language === 'ko' ? '실험실 외 효능 감소' : 'Efficacy Loss Outside the Lab'}
                 </div>
               </div>
               <div className="text-center">
